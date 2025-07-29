@@ -1,0 +1,264 @@
+/* General Styles */
+body {
+  background-image: url('./assest/Background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  background-color: black; /* Set background to black */
+}
+
+/* Video Styling */
+.background_video {
+  filter: blur(3px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the full screen */
+}
+
+/* Background Box */
+.background_Box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(14, 2, 2, 0.137);
+  backdrop-filter: blur(3px);
+  z-index: 1;
+}
+
+/* Auth Form Styling */
+.auth-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Circle Styling (Interactive Element) */
+.circle {
+  width: 100px;
+  height: 100px;
+  background: rgba(156, 94, 12, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgb(110, 54, 2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  cursor: pointer;
+  transition: all 1s ease;
+  transform-origin: center;
+}
+
+.circle:hover {
+  transform: translate(-50%, -50%) scale(1.2);
+  background-color: #0696af2a;
+  box-shadow: 0 4px 10px rgb(14, 243, 224);
+}
+.Login:hover {
+  transition: all 1.5s ease;
+  transform: scale(1.2);
+  text-shadow: 0 4px 10px rgb(18, 197, 241);
+  color: aliceblue;
+  
+}
+.register{
+  color: rgb(195, 4, 243);
+  }
+.circle.clicked {
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-left-radius: 0%;
+  border-bottom-right-radius: 0%;
+  top: 19.0%;
+}
+
+/* Customer Icon Inside the Circle */
+.customer_icon {
+  background-image: url("./assest/customer_man_user_account_profile_icon.png");
+  background-size: cover;
+  background-position: center;
+  width: 100px;
+  height: 100px;
+  z-index: 3;
+  position: absolute;
+}
+
+/* Main Box (Content Area) */
+.Main_Box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 600px;
+  height: 50%;
+  background: rgba(22, 22, 22, 0.116);
+  backdrop-filter: blur(5px);
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 10px rgb(110, 54, 2);
+  z-index: 2;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 1s ease-in-out;
+  transition: all 1.5s ease;
+}
+
+.Main_Box.show {
+  opacity: 1; /* Fade-in effect after circle click */
+}
+.Main_Box:hover{
+  
+  transform: translate(-50%, -50%) scale(1.04);
+  box-shadow: 0 4px 10px rgba(241, 33, 18, 0.178);
+  
+  
+}
+
+/* Heading */
+h1 {
+  text-align: center;
+}
+
+/* Input Fields Styling */
+.adjustRowWise {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.adjustRowWise p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+}
+
+/* Input Fields Style */
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-bottom: 2px solid #e2c2a8;
+  background: transparent;
+  color: white;
+  font-size: 16px;
+  outline: none;
+}
+
+input:focus {
+  border-bottom: 2px solid #a851093a;
+  transition: border 0.3s ease;
+}
+
+/* Button Styling */
+button.submit-btn {
+  width: 15%;
+  padding: 10px;
+  background-color: #a851093a;
+  color: white;
+  box-shadow: 0 4px 10px rgb(0, 0, 0);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+button.submit-btn:hover {
+  background-color: #0696aff5;
+  box-shadow: 0 4px 10px rgb(14, 243, 224);
+  transform: scale(1.1, 1.1);
+  transition: all 1.2s ease;
+}
+
+/* Error Message Styling */
+.error {
+  color: red;
+  text-align: center;
+}
+
+/* Link to Register */
+p {
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+/* General transition for the whole form */
+/* Full-screen container for background and fade transition */
+.fade-transition {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black; /* Set background to black */
+  transition: opacity 1s ease-in-out, background-color 1s ease-in-out;
+  opacity: 0; /* Initially hidden */
+  z-index: 0; /* Ensure it's behind content */
+}
+
+/* When fully visible, apply opacity */
+.fade-in {
+  opacity: 1; /* Make visible */
+}
+
+
+.Login_Fade {
+  pointer-events: auto;       /* ← make it hoverable */
+  position: absolute;
+  top: calc(50% + 60px);
+  left: 50%;
+  transform: translate(-50%, 0);
+  font-size: 30px;
+  color: bisque;
+  text-shadow: 0 4px 10px rgba(7, 2, 1, 0.7);
+  z-index: 4;                 /* ← above .Main_Box (z-index:2) */
+  transition: transform 1.5s ease,  color 1.5s ease,  text-shadow 1.5s ease, opacity 0.5s ease;
+}
+
+/* Allow it to grow outside the form: */
+.auth-form {
+  position: relative;
+  z-index: 1;
+  overflow: visible;          /* ← override hidden */
+}
+
+/* Now your hover will work: */
+.Login_Fade:hover {
+  transform: translate(-50%, 0) scale(1.2);
+  text-shadow: 0 4px 10px rgb(18, 197, 241);
+  color: aliceblue;
+}
+
+.Login_Fade.fade-out {
+  opacity: 0;
+}
+
+.Login_Fade.fade-in {
+  opacity: 1;
+}
+
+

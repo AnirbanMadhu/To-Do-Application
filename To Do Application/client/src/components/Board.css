@@ -1,0 +1,57 @@
+/* src/components/Board.css */
+
+/* Fullscreen blurred background video */
+.background_video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(3px);
+  z-index: 0;
+}
+
+/* Darkened blur overlay */
+.background_Box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(14, 2, 2, 0.137);
+  backdrop-filter: blur(3px);
+  z-index: 1;
+}
+
+/* Ensure the Kanban content appears above the video */
+.board-container .kanban-app {
+  position: relative;
+  z-index: 2;
+}
+
+/* Kanban board layout */
+.kanban-board {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+/* Column styling */
+.kanban-column {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  flex: 1;
+  padding: 0.5rem;
+  min-height: 400px;
+}
+
+/* Error bar */
+.error-bar {
+  background: #ffdddd;
+  color: #900;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  border-radius: 4px;
+}
+

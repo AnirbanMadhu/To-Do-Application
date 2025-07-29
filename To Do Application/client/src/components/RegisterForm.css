@@ -1,0 +1,263 @@
+/* === General Styles: full‑screen background and base resets === */
+body {
+  background-image: url('./assest/Background.jpg'); /* Set page background image */
+  background-repeat: no-repeat;                       /* Prevent tiling */
+  background-size: cover;                             /* Cover whole viewport */
+  background-position: center;                        /* Center image */
+  background-attachment: fixed;                       /* Fix image on scroll */
+  text-align: center;                                 /* Center text by default */
+  margin: 0;                                          /* Remove default margin */
+  padding: 0;                                         /* Remove default padding */
+  height: 100vh;                                      /* Full viewport height */
+  overflow: hidden;                                   /* Hide overflow */
+  background-color: black; /* Fallback background color */
+}
+
+/* === Video Styling: blur and full‑screen positioning === */
+.background_video {
+  filter: blur(3px);         /* Blur effect */
+  position: absolute;        /* Absolute over body */
+  top: 0;                    /* Align top */
+  left: 0;                   /* Align left */
+  width: 100%;               /* Full width */
+  height: 100%;              /* Full height */
+  object-fit: cover;         /* Cover container */
+}
+
+/* === Background Overlay Box: dark translucent layer === */
+.background_Box {
+  position: absolute;        /* Overlay entire screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(14, 2, 2, 0.137); /* Semi‑transparent overlay */
+  backdrop-filter: blur(3px);        /* Additional blur */
+  z-index: 1;                        /* Behind form elements */
+}
+
+/* === Auth Form Styling: center form container === */
+.auth-form {
+  display: flex;             /* Flex for centering */
+  justify-content: center;   /* Horizontal center */
+  align-items: center;       /* Vertical center */
+  height: 100vh;             /* Full viewport */
+  padding: 0;                /* No padding */
+  overflow: hidden;          /* Hide overflow */
+  position: relative;        /* For child absolute positioning */
+  z-index: 1;                /* Above background */
+}
+
+/* === Circle Styling: interactive toggle button === */
+.circle {
+  width: 100px;                                      /* Circle diameter */
+  height: 100px;
+  background: rgba(156, 94, 12, 0.3);                /* Translucent fill */
+  backdrop-filter: blur(10px);                       /* Blur behind */
+  border-radius: 50%;                                /* Make circular */
+  box-shadow: 0 4px 10px rgb(110, 54, 2);            /* Soft shadow */
+  position: absolute;                                /* Positioned over form */
+  top: 50%;                                          /* Center vertically */
+  left: 50%;                                         /* Center horizontally */
+  transform: translate(-50%, -50%);                  /* Nudge to exact center */
+  z-index: 3;                                        /* Above overlay */
+  cursor: pointer;                                   /* Clickable */
+  transition: all 1s ease;                           /* Smooth hover */
+  transform-origin: center;                          /* Scale from center */
+}
+
+/* Hover effect on circle */
+.circle:hover {
+  transform: translate(-50%, -50%) scale(1.2);       /* Grow on hover */
+  background-color: #0696af2a;                      /* Change color */
+  box-shadow: 0 4px 10px rgb(14, 243, 224);          /* Bright shadow */
+}
+
+/* === Login Text Hover Styling (when in .Main_Box) === */
+.Login:hover {
+  transition: all 1.5s ease;                        /* Smooth hover */
+  transform: scale(1.2);                            /* Grow text */
+  text-shadow: 0 4px 10px rgb(18, 197, 241);        /* Glow effect */
+  color: aliceblue;                                 /* Light color */
+}
+
+/* === Register Link Color === */
+.register {
+  color: rgb(195, 4, 243); /* Purple link */
+}
+
+/* Circle clicked state: top‑curved shape */
+.circle.clicked {
+  border-top-left-radius: 50%;   /* Keep top curves */
+  border-top-right-radius: 50%;
+  border-bottom-left-radius: 0%; /* Flatten bottom */
+  border-bottom-right-radius: 0%;
+  top: 14.0%;                    /* Move up */
+}
+
+/* === Customer Icon Inside the Circle === */
+.customer_icon {
+  background-image: url("./assest/customer_man_user_account_profile_icon.png"); /* Icon image */
+  background-size: cover;       /* Cover circle */
+  background-position: center;   /* Center icon */
+  width: 100px;                  /* Match circle */
+  height: 100px;
+  position: absolute;            /* Overlay circle */
+  z-index: 3;                    /* Above circle background */
+}
+
+/* === Main Box: form fields container === */
+.Main_Box {
+  display: flex;                      /* Flex column */
+  flex-direction: column;
+  justify-content: space-evenly;      /* Even spacing */
+  align-items: center;                /* Center items */
+  position: absolute;                 /* Positioned over bg */
+  top: 50%;                           /* Center vertically */
+  left: 50%;                          /* Center horizontally */
+  transform: translate(-50%, -50%);   /* Nudge to center */
+  width: 90%;                         /* Responsive width */
+  max-width: 600px;                   /* Max width */
+  height: 60%;                        /* Half viewport */
+  background: rgba(22, 22, 22, 0.116);/* Semi‑transparent */
+  backdrop-filter: blur(5px);         /* Blur behind */
+  padding: 20px;                      /* Inner padding */
+  box-sizing: border-box;             /* Include padding in size */
+  box-shadow: 0 4px 10px rgb(110, 54, 2); /* Shadow */
+  z-index: 2;                         /* Above overlay but below circle */
+  opacity: 0;                         /* Hidden by default */
+  transition: opacity 1s ease-in-out, all 1.5s ease; /* Fade and growth */
+}
+
+/* Show Main_Box when circle clicked */
+.Main_Box.show {
+  opacity: 1; /* Fade‑in */
+}
+
+/* Hover effect on Main_Box */
+.Main_Box:hover {
+  transform: translate(-50%, -50%) scale(1.04); /* Slight grow */
+  box-shadow: 0 4px 10px rgba(241, 33, 18, 0.178); /* Colored shadow */
+}
+
+/* === Heading Styles === */
+h1 {
+  text-align: center; /* Center headings */
+}
+
+/* === Row Layout for Inputs and Labels === */
+.adjustRowWise {
+  display: flex;             /* Horizontal flex */
+  flex-direction: row;       
+  justify-content: space-between; /* Spread items */
+  align-items: center;       /* Align vertically */
+  gap: 10px;                 /* Space between */
+}
+
+.adjustRowWise p {
+  margin: 0;                 /* Remove default margin */
+  font-size: 16px;           
+  font-weight: bold;         
+  color: white;              /* White text */
+}
+
+/* === Input Field Styles === */
+input {
+  width: 100%;                     /* Full width */
+  padding: 10px;                   /* Inner padding */
+  margin-bottom: 20px;             /* Spacing below */
+  border: none;                    /* No border */
+  border-bottom: 2px solid #e2c2a8;/* Underline style */
+  background: transparent;         /* Transparent bg */
+  color: white;                    /* White text */
+  font-size: 16px;
+  outline: none;                   /* Remove focus outline */
+}
+input:focus {
+  border-bottom: 2px solid #a851093a; /* Focus underline */
+  transition: border 0.3s ease;        /* Smooth focus */
+}
+
+/* === Submit Button Styling === */
+button.submit-btn {
+  width: 15%;                       /* Narrow button */
+  padding: 10px;                    
+  background-color: #a851093a;      /* Semi‑transparent bg */
+  color: white;                     
+  box-shadow: 0 4px 10px rgb(0, 0, 0); /* Shadow */
+  border: none;                     
+  border-radius: 5px;               
+  cursor: pointer;                  
+  display: block;                   
+  margin: 0 auto;                   /* Center horizontally */
+  text-align: center;
+}
+button.submit-btn:hover {
+  background-color: #0696aff5;      /* Hover bg */
+  box-shadow: 0 4px 10px rgb(14, 243, 224); /* Bright shadow */
+  transform: scale(1.1);            /* Grow */
+  transition: all 1.2s ease;        /* Smooth hover */
+}
+
+/* === Error and Success Messages === */
+.error {
+  color: red;               /* Error red */
+  text-align: center;       /* Center text */
+}
+.success {
+  color: lightgreen;        /* Success green */
+  text-align: center;
+}
+
+/* === Generic Paragraph Styling (e.g., register link) === */
+p {
+  font-size: 14px;          /* Small text */
+  margin-top: 20px;         /* Space above */
+}
+
+/* === Full‑screen Fade Transition Container === */
+.fade-transition {
+  position: absolute;        /* Overlay full screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;   /* Black bg */
+  transition: opacity 1s ease-in-out, background-color 1s ease-in-out; /* Smooth */
+  opacity: 0;                /* Hidden initially */
+  z-index: 0;                /* Behind all */
+}
+
+/* Fade‑in helper */
+.fade-in {
+  opacity: 1; /* Visible */
+}
+
+/* === Login Fade Text: toggles “Register Page” label === */
+.Login_Fade {
+  pointer-events: auto;          /* Allow hover */
+  position: absolute;            
+  top: calc(50% + 60px);         /* Below circle */
+  left: 50%;                     
+  transform: translate(-50%, 0); /* Center horizontally */
+  font-size: 30px;               
+  color: bisque;                 
+  text-shadow: 0 4px 10px rgba(7, 2, 1, 0.7); /* Glow */
+  z-index: 4;                    /* On top */
+  transition: transform 1.5s ease, color 1.5s ease, text-shadow 1.5s ease, opacity 0.5s ease; /* Smooth */
+}
+
+/* Hover effect for the text */
+.Login_Fade:hover {
+  transform: translate(-50%, 0) scale(1.2); /* Grow */
+  text-shadow: 0 4px 10px rgb(18, 197, 241); 
+  color: aliceblue;                         
+}
+
+/* States for fading text */
+.Login_Fade.fade-out {
+  opacity: 0; /* Invisible */
+}
+.Login_Fade.fade-in {
+  opacity: 1; /* Visible */
+}

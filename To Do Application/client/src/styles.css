@@ -1,0 +1,307 @@
+/* Global reset */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #000;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main Kanban container centered */
+.kanban-app {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background: rgba(22, 22, 22, 0.788);
+  backdrop-filter: blur(5px);
+  box-sizing: border-box;
+  box-shadow: 0 4px 10px rgb(110, 54, 2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 30px 20px;
+  position: relative;
+  z-index: 2;
+  color: #f1f1f1;
+}
+.kanban-app:hover,
+.kanban-column:hover {
+  transform: scale(1.04);
+  box-shadow: 0 4px 10px rgba(241, 33, 18, 0.178);
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+header h1 {
+  font-size: 2.2rem;
+  color: #fcfcfc;
+}
+
+/* Buttons */
+button {
+  background-color: #a851093a;
+  color: #eceaea;
+  box-shadow: 0 4px 10px #000;
+  border: none;
+  border-radius: 6px;
+  padding: 0.4em 1em;
+  margin: 0 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+button:hover {
+  background-color: #0696aff5;
+  box-shadow: 0 4px 10px #0ef3e0;
+  transform: scale(1.1);
+}
+
+/* Danger button */
+button.danger {
+  background-color: #f83200f5;
+}
+button.danger:hover {
+  background-color: #a9031a;
+  box-shadow: 0 4px 10px #d80808;
+  transform: scale(1.1);
+}
+
+/* Smart‑assign button */
+button.smart-assign-btn {
+  background: #ffd600;
+  color: #333;
+  font-size: 1.15em;
+  margin-left: 8px;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+  transition: all 1.2s ease;
+}
+button.smart-assign-btn:hover {
+  background: #f5c801;
+  box-shadow: 0 4px 10px #f0c403;
+  transform: scale(1.1);
+  transition: all 1.2s ease;
+}
+
+/* Auth forms (login/register) */
+.auth-form {
+  border-radius: 16px;
+  padding: 32px 24px;
+  box-shadow: 0 2px 12px #0001;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: #f1f1f1;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.auth-form:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px #0003;
+}
+.auth-error {
+  color: #f00;
+  margin-bottom: 6px;
+}
+.switch-link {
+  color: #1e90ff;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* Board columns */
+.kanban-board {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+}
+.kanban-column {
+  flex: 1;
+  min-width: 260px;
+  background: rgba(0, 0, 0, 0.16);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px #0001;
+  padding: 18px 12px;
+  margin-bottom: 32px;
+  min-height: 280px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+}
+.kanban-column h2 {
+  margin: 0 0 10px 0;
+  font-size: 1.25rem;
+  color: #ececec;
+}
+
+/* New‑task form */
+.task-create-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 14px;
+  transition: all 1s ease;
+
+}
+.task-create-form input,
+.task-create-form select {
+  border-radius: 6px;
+  padding: 0.38em 0.6em;
+  transition: border-color 0.3s ease, background-color 0.3s ease;transition: all 1s ease;
+}
+.task-create-form input:focus,
+.task-create-form select:focus {
+  border-color: #0696aff5;
+}
+.task-create-form button {
+  min-width: 70px;
+  color: #f1f1f1;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Task cards */
+.task-card {
+  background: rgba(244, 245, 247, 0.025);
+  border-radius: 14px;
+  margin: 7px 0;
+  box-shadow: 0 1px 7px #0002;
+  padding: 12px 13px 8px 13px;
+  position: relative;
+  user-select: none;
+  cursor: grab;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  animation: card-fadein 0.33s ease;
+  color: #f1f1f1;
+}
+.task-card.editing {
+  background: #140e071e;
+  padding: 40px;
+  cursor: default;
+}
+.task-card:active {
+  box-shadow: 0 6px 12px #1e90ff22;
+}
+.task-card.priority-high { border-left: 5px solid #e5383b; }
+.task-card.priority-medium { border-left: 5px solid #ffd600; }
+.task-card.priority-low { border-left: 5px solid #1e90ff; }
+.card-title { font-weight: 600; margin-bottom: 7px; display: flex; gap: 4px; }
+.card-meta { font-size: 0.92em; margin-bottom: 2px; display: flex; gap: 16px; color: #ccc; }
+.card-desc { margin-bottom: 6px; color: #aaa; }
+.card-actions { margin-top: 4px; display: flex; gap: 8px; }
+
+/* Card fade‑in animation */
+@keyframes card-fadein {
+  from { opacity: 0; transform: translateY(30px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1);    }
+}
+
+/* Error bar */
+.error-bar {
+  background: #ef233c;
+  color: #fff;
+  border-radius: 10px;
+  padding: 9px 15px;
+  text-align: center;
+  margin: 10px 0;
+  font-weight: bold;
+  transition: opacity 0.3s ease;
+}
+
+/* Activity log panel */
+.activity-log {
+  background: #333;
+  border-radius: 12px;
+  padding: 18px 16px;
+  margin: 18px 0;
+  box-shadow: 0 2px 12px #0001;
+  max-height: 280px;
+  overflow-y: auto;
+  transition: max-height 0.4s ease;
+}
+.activity-log ul { padding: 0; margin: 0; list-style: none; }
+.activity-log li { font-size: 1em; margin-bottom: 7px; color: #ccc; }
+.activity-time { color: #aaa; font-size: 0.93em; margin-left: 8px; }
+
+/* Conflict resolution modal */
+.conflict-modal {
+  position: fixed; top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.4s ease;
+}
+.conflict-box {
+  background: #222;
+  padding: 28px 32px;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px #000;
+  max-width: 95vw; min-width: 320px;
+  color: #f1f1f1;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.conflict-columns { display: flex; gap: 22px; justify-content: center; }
+.conflict-box pre {
+  background: #333; border-radius: 8px; padding: 8px;
+  font-size: 0.93em; overflow-x: auto; color: #f1f1f1;
+}
+.conflict-box button { transition: all 1.2s ease;margin-top: 7px; }
+.conflict-box .close { transition: all 1.2s ease;margin-left: 12px; background: #888; }
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .kanban-board { flex-direction: column; }
+  .kanban-column { margin-bottom: 16px; }
+}
+@media (max-width: 500px) {
+  .kanban-app { padding: 10px; }
+  .kanban-board { gap: 6px; }
+  .task-card { padding: 9px 7px; }
+}
+/* Base button style */
+button {
+  /* animate all properties over 1s */
+  transition: all 1s ease;
+}
+
+/* Hover state */
+button:hover {
+  transform: scale(1.1);
+  /* other hover changes (background, box‑shadow) will also respect 1s ease */
+}
+
+/* Danger button */
+button.danger {
+  background-color: #f83200f5;
+}
+button.danger:hover {
+  background-color: #a9031a;
+  /* inherits the 1s transition */
+}
+
+/* Smart‑assign button */
+button.smart-assign-btn {
+  background: #ffd600;
+  color: #333;
+  font-size: 1.15em;
+  margin-left: 8px;
+  transition: all 1s ease;  /* override if you had a shorter duration before */
+}
+button.smart-assign-btn:hover {
+  background: #f5c801;
+  transform: scale(1.1);
+  /* inherits 1s ease */
+}
+
+/* Conflict modal buttons */
+.conflict-box button,
+.conflict-box .close {
+  transition: all 1s ease;
+}
+.conflict-box button:hover,
+.conflict-box .close:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
